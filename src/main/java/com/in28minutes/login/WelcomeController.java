@@ -11,18 +11,19 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 //Login controller
 //handler
 @Controller
-@SessionAttributes("username")
-public class LoginController {
+//@SessionAttributes("username")
+public class WelcomeController {
 
-	@Autowired
-	LoginService service;
+	/*@Autowired
+	LoginService service;*/
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String showLoginPage() {
-		return "login";
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String showLoginPage(ModelMap model) {
+		model.put("username","in28minutes");
+		return "welcome";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String showLoginRequest(@RequestParam String username, @RequestParam String password, ModelMap model) {
 		if (service.validateUser(username, password)) {
 			model.put("username", username);
@@ -34,5 +35,5 @@ public class LoginController {
 			return "login";
 		}
 
-	}
+	}*/
 }

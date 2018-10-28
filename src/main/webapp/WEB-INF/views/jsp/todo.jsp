@@ -1,18 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Welcome</title>
-</head>
-<body>
+<%@include file="common/header.jspf"%>
+<%@include file="common/navigation.jspf"%>
 	<div class="container">
 		<h1>Add a Todo</h1>
-		<form method="post" action="">
-			<label>Description</label><input name="desc" type="text" /> 
-			<input type="submit" value="Add">
-		</form>
+		<form:form method="post" commandName="todo">
+		<form:hidden path="id"/>
+		<form:hidden path="userName"/>
+		
+			<fieldset class="form-group">
+				<form:label path="desc">Description </form:label>
+				<form:input path="desc" type="text"
+					class="form-control" required="required" />
+				<form:errors path="desc" cssClass="text-warning"></form:errors>
+			</fieldset>
+			
+			<fieldset class="form-group">
+				<form:label path="targetDate">Target Date </form:label>
+				<form:input path="targetDate" type="text"
+					class="form-control" required="required" />
+				<form:errors path="targetDate" cssClass="text-warning"></form:errors>
+			</fieldset>
+
+			<input class="btn btn-success" type="submit" value="Submit">
+		</form:form>
 	</div>
-</body>
-</html>
+<%@include file="common/footer.jspf"%>
