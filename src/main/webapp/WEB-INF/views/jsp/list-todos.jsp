@@ -6,7 +6,7 @@
 <div class="container">
 
 
-	<blockquote><spring:message code="todo.caption"/></blockquote>
+	<blockquote><spring:message code="todo.caption" /></blockquote>
 	<table class="table table-striped table-bordered">
 	
 		<thead>
